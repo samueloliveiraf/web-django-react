@@ -1,4 +1,6 @@
-from django.shortcuts import render
+
+from typing import Tuple
+from django.views.generic.base import RedirectView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import *
@@ -18,3 +20,12 @@ class CategoryProductView(APIView):
             data.append(cata)
 
         return Response(category_serializer)
+
+
+class CategorisView(APIView):
+    def get(self, request):
+        categoris_obj = Category.objects.all()
+        category_serializer = CategorySerializer(
+            categoris_obj, many=True, context={'request': request}).data
+        return Response(category_serializer)
+

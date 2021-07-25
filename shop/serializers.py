@@ -20,3 +20,7 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+        def imageurl(self, obj):
+            request = self.context.get('request')
+            return request.url(image)
+
