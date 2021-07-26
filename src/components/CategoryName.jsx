@@ -28,7 +28,7 @@ const CategoryName = () => {
 
         <Grid container spacing={2}>
 
-            <Headline title="Todas" subititle="Categorias" />
+            <Headline title="Todas" subtitle="Categorias" />
 
             {
                 categorynames?.map((item, i) => 
