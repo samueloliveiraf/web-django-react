@@ -33,9 +33,16 @@ const CategoryProducts = () => {
         {categoryProducts?.map((item, i) => (
           <Box key={i} container="div">
             <>
-              <Headline title={item?.title} subtitle="Products" />
+              <Headline
+                title={item?.title} 
+                subtitle="Products" 
+              />
             
-              <AllProducts products={item?.products} />
+              <AllProducts 
+                products={item?.products} 
+                categorytitle={item?.title} 
+                categoryid={item?.id}
+              />
 
             </>
           </Box>

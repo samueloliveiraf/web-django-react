@@ -1,14 +1,24 @@
-import { AppBar, Toolbar,Typography } from '@material-ui/core'
+import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 const NabBar = () => {
-    return (
-        <AppBar style={{ background: '#2E3B55' }} position='sticky'>
 
+    const history = useHistory();
+
+    return (
+        <AppBar
+            style={{ background: '#2E3B55' }}
+            position='sticky'
+        >
             <Toolbar>
-                <Typography>Moda Shop</Typography>
+
+                <Button onClick={()=>history.push('/')} color='inherit'>
+                    <Typography>Moda Shop</Typography>
+                </Button>
+
             </Toolbar>
-            
+
         </AppBar>
     )
 }

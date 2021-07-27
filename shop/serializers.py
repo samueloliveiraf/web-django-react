@@ -18,9 +18,9 @@ class ProductSerialializers(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = "__all__"
 
-        def imageurl(self, obj):
-            request = self.context.get('request')
-            return request.url(image)
 
+    def imageurl(self, obj):
+        request = self.context.get('request')
+        return request.url(image)

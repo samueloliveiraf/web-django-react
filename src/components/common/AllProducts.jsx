@@ -2,9 +2,24 @@ import { Button, Grid, Typography } from '@material-ui/core'
 import React from 'react'
 import SingleProduct from './SingleProduct'
 import DoubleArrowSharpIcon from "@material-ui/icons/DoubleArrowSharp";
+import { useHistory } from 'react-router-dom';
 
 
-const AllProducts = ({ products, showall = false }) => {
+const AllProducts = ({ 
+    
+    products, 
+    showall = false, 
+    categorytitle, 
+    categoryid 
+
+    }) => {
+    
+    const history = useHistory();
+
+    const showcategoryproducts = () => {
+        history.push(`category-${categorytitle}-${categoryid}`)
+    }
+
     return (
         <Grid style={{
             marginTop: '10px'
@@ -38,7 +53,7 @@ const AllProducts = ({ products, showall = false }) => {
                         alignItems: "center",
                     }}
                 >
-                    <Button>
+                    <Button onClick={showcategoryproducts}>
                         <Typography>Veja Mais</Typography>
                         <DoubleArrowSharpIcon />
                     </Button>

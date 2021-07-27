@@ -1,9 +1,18 @@
 import { Box, Card, CardActionArea, Typography } from '@material-ui/core'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-const SingleCategory = ({item}) => {
+const SingleCategory = ({ item }) => {
+
+    const history = useHistory();
+
+    const showcategoryproducts = () => {
+        history.push(`category-${item?.title}-${item?.id}`)
+    }
+
     return (
-        <CardActionArea>
+        <CardActionArea onClick={showcategoryproducts}>
+
             <Card style={{
                 whidth: '100%',
                 height: '100px',
@@ -14,7 +23,7 @@ const SingleCategory = ({item}) => {
                 color: 'white',
                 position: 'relative',
             }}>
-                
+
                 <Box style={{
                     alignItems: 'center',
                     textAlign: 'center',
@@ -25,12 +34,13 @@ const SingleCategory = ({item}) => {
                     right: 0,
                     bottom: 0,
                 }}>
-                    <Typography variant='h5'> 
+                    <Typography variant='h5'>
                         {item?.title}
                     </Typography>
                 </Box>
 
             </Card>
+            
         </CardActionArea>
     )
 }
